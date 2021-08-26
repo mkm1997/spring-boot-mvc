@@ -10,10 +10,10 @@
 
 <%= "Welcome to spring boot" %>
 
-<form action="add">
-    Number first : <input type="text" name="num1"/>
+<form action="addAlien">
+    Enter id : <input type="text" name="aid"/>
     <br/>
-    Number Second: <input type="text" name="num2"/>
+    Enter name: <input type="text" name="aname"/>
     <br/>
     <input type="submit" value="submit"/>
 </form>

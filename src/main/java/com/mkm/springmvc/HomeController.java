@@ -1,6 +1,8 @@
 package com.mkm.springmvc;
+import com.mkm.springmvc.model.Alien;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,14 +21,33 @@ public class HomeController {
         return "index";
     }
 
+    @RequestMapping("/addAlien")
+    public String addAlien(@ModelAttribute Alien a){
+        System.out.println("In add alien request");
+        return "result";
+    }
+
+//    @RequestMapping("/addAlien")
+//    public String addAlien(@RequestParam("aid")int aid, @RequestParam("aname")String aname, Model m){
+//
+//        System.out.println("In add alien request");
+//        Alien obj = new Alien();
+//        obj.setAid(aid);
+//        obj.setAname(aname);
+//        m.addAttribute("alien", obj.toString());
+//        return "result";
+//    }
+
     @RequestMapping("/add")
     public String add(@RequestParam("num1") int i, @RequestParam("num2") int j, Model m){
-       ;
+
         System.out.println("First number is: " + i + " Second number is: " + j);
         int result = i + j;
         m.addAttribute("num", result);
         return "result";
     }
+
+
 
 
 //    @RequestMapping("/add")
