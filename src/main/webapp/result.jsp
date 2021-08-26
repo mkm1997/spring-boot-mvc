@@ -8,14 +8,7 @@
 </head>
 <body>
 
-<%= "Welcome to spring boot" %>
 
-<form action="add">
-    Number first : <input type="text" name="num1"/>
-    <br/>
-    Number Second: <input type="text" name="num2"/>
-    <br/>
-    <input type="submit" value="submit"/>
-</form>
+Result is : ${num}
 </body>
 </html>
