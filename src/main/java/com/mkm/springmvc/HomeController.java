@@ -1,5 +1,6 @@
 package com.mkm.springmvc;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,13 +20,12 @@ public class HomeController {
     }
 
     @RequestMapping("/add")
-    public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j){
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("result");
+    public String add(@RequestParam("num1") int i, @RequestParam("num2") int j, Model m){
+       ;
         System.out.println("First number is: " + i + " Second number is: " + j);
         int result = i + j;
-        mv.addObject("num", result);
-        return mv;
+        m.addAttribute("num", result);
+        return "result";
     }
 
 
