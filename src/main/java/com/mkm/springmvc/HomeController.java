@@ -15,13 +15,13 @@ public class HomeController {
     public String home()
     {
         System.out.println("Home page requested .. !!");
-        return "index.jsp";
+        return "index";
     }
 
     @RequestMapping("/add")
     public ModelAndView add(@RequestParam("num1") int i, @RequestParam("num2") int j){
         ModelAndView mv = new ModelAndView();
-        mv.setViewName("result.jsp");
+        mv.setViewName("result");
         System.out.println("First number is: " + i + " Second number is: " + j);
         int result = i + j;
         mv.addObject("num", result);
