@@ -14,6 +14,12 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class HomeController {
 
+
+    @ModelAttribute // This method will called first and available in all the controller view
+    public void modelData(Model m){
+        m.addAttribute("name", "Aliens");
+    }
+
     @RequestMapping("/") // to map the url
     public String home()
     {

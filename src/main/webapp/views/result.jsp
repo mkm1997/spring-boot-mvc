@@ -10,5 +10,8 @@
 
 
 Result is : ${alien}
+
+<br/>
+Name is: ${name}
 </body>
 </html>
