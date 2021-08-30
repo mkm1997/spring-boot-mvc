@@ -1,5 +1,7 @@
 package com.mkm.springmvc;
 import com.mkm.springmvc.model.Alien;
+import com.mkm.springmvc.model.AlienRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -20,6 +22,9 @@ public class HomeController {
         m.addAttribute("name", "Aliens");
     }
 
+    @Autowired
+    AlienRepo repo;
+
     @RequestMapping("/") // to map the url
     public String home()
     {
@@ -33,6 +38,20 @@ public class HomeController {
         return "result";
     }
 
+    @RequestMapping("/getAliens")
+    public String getAliens(Model m){
+        m.addAttribute("aliens", repo.findAll());
+        System.out.println("In add alien request");
+        return "showAliens";
+    }
+
+    @RequestMapping("/getAlien")
+    public String getAlien(@RequestParam Long id, Model m){
+        System.out.println("In add alien request" + id);
+        m.addAttribute("aliens", repo.getById(id));
+
+        return "showAliens";
+    }
 //    @RequestMapping("/addAlien")
 //    public String addAlien(@RequestParam("aid")int aid, @RequestParam("aname")String aname, Model m){
 //

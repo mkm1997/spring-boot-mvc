@@ -11,9 +11,19 @@
 <%= "Welcome to spring boot" %>
 
 <form action="addAlien">
-    Enter id : <input type="text" name="aid"/>
+    Enter id : <input type="text" name="id"/>
     <br/>
-    Enter name: <input type="text" name="aname"/>
+    Enter name: <input type="text" name="name"/>
+    <br/>
+    Enter age: <input type="text" name="age"/>
+    <br/>
+    <input type="submit" value="submit"/>
+</form>
+
+
+
+<form action="getAlien">
+    Enter id : <input type="text" name="id"/>
     <br/>
     <input type="submit" value="submit"/>
 </form>
