@@ -4,13 +4,12 @@ import com.mkm.springmvc.model.AlienRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 
 @Controller
@@ -38,19 +37,21 @@ public class HomeController {
         return "result";
     }
 
-    @RequestMapping("/getAliens")
-    public String getAliens(Model m){
-        m.addAttribute("aliens", repo.findAll());
-        System.out.println("In add alien request");
-        return "showAliens";
+    @RequestMapping("/aliens")
+    @ResponseBody
+    public List<Alien> getAliens(){
+        List<Alien> aliens = repo.findAll();
+        System.out.println(aliens);
+        return aliens;
     }
 
-    @RequestMapping("/getAlien")
-    public String getAlien(@RequestParam Long id, Model m){
+    @RequestMapping("/alien/{id}")
+    @ResponseBody
+    public Alien getAlien(@PathVariable("id") Long id){
+        System.out.println("helloooooooooooo  ");
         System.out.println("In add alien request" + id);
-        m.addAttribute("aliens", repo.getById(id));
-
-        return "showAliens";
+        Alien a = repo.findById(id).orElse(new Alien(0L,"",0));
+        return a;
     }
 
 
