@@ -52,6 +52,14 @@ public class HomeController {
 
         return "showAliens";
     }
+
+
+    @RequestMapping("/getAlienByName")
+    public String getAlienByName(@RequestParam String name, Model m){
+        System.out.println("In add alien request 111 " + name + " " + repo.getByName(name));
+        m.addAttribute("aliens", repo.getByName(name));
+        return "showAliens";
+    }
 //    @RequestMapping("/addAlien")
 //    public String addAlien(@RequestParam("aid")int aid, @RequestParam("aname")String aname, Model m){
 //

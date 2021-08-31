@@ -20,10 +20,17 @@
     <input type="submit" value="submit"/>
 </form>
 
-
+<br>
 
 <form action="getAlien">
     Enter id : <input type="text" name="id"/>
+    <br/>
+    <input type="submit" value="submit"/>
+</form>
+
+<br>
+<form action="getAlienByName">
+    Enter Name : <input type="text" name="name"/>
     <br/>
     <input type="submit" value="submit"/>
 </form>
