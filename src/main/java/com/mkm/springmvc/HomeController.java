@@ -56,8 +56,8 @@ public class HomeController {
 
     @RequestMapping("/getAlienByName")
     public String getAlienByName(@RequestParam String name, Model m){
-        System.out.println("In add alien request 111 " + name + " " + repo.getByName(name));
-        m.addAttribute("aliens", repo.getByName(name));
+        System.out.println("In add alien request 111 " + name + " " + repo.name(name));
+        m.addAttribute("aliens", repo.name(name));
         return "showAliens";
     }
 //    @RequestMapping("/addAlien")
