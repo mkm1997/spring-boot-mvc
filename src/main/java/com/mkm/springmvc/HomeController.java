@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
-@Controller
+@RestController
 public class HomeController {
 
 
@@ -31,22 +31,21 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("/addAlien")
-    public String addAlien(@ModelAttribute Alien a){
+    @PostMapping(value = "/addAlien", consumes = "application/json")
+    public Alien addAlien(@RequestBody Alien a){
         System.out.println("In add alien request");
-        return "result";
+        repo.save(a);
+        return a;
     }
 
-    @RequestMapping("/aliens")
-    @ResponseBody
+    @GetMapping(value = "/aliens", produces = "application/json")
     public List<Alien> getAliens(){
         List<Alien> aliens = repo.findAll();
         System.out.println(aliens);
         return aliens;
     }
 
-    @RequestMapping("/alien/{id}")
-    @ResponseBody
+    @GetMapping("/alien/{id}")
     public Alien getAlien(@PathVariable("id") Long id){
         System.out.println("helloooooooooooo  ");
         System.out.println("In add alien request" + id);
