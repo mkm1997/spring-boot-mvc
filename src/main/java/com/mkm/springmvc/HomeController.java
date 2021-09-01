@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 
 
-@RestController
+@Controller
 public class HomeController {
 
 
@@ -31,27 +31,30 @@ public class HomeController {
         return "index";
     }
 
-    @PostMapping(value = "/addAlien", consumes = "application/json")
-    public Alien addAlien(@RequestBody Alien a){
-        System.out.println("In add alien request");
-        repo.save(a);
-        return a;
-    }
 
-    @GetMapping(value = "/aliens", produces = "application/json")
-    public List<Alien> getAliens(){
-        List<Alien> aliens = repo.findAll();
-        System.out.println(aliens);
-        return aliens;
-    }
 
-    @GetMapping("/alien/{id}")
-    public Alien getAlien(@PathVariable("id") Long id){
-        System.out.println("helloooooooooooo  ");
-        System.out.println("In add alien request" + id);
-        Alien a = repo.findById(id).orElse(new Alien(0L,"",0));
-        return a;
-    }
+
+//    @PostMapping(value = "/addAlien", consumes = "application/json")
+//    public Alien addAlien(@RequestBody Alien a){
+//        System.out.println("In add alien request");
+//        repo.save(a);
+//        return a;
+//    }
+
+//    @GetMapping(value = "/aliens", produces = "application/json")
+//    public List<Alien> getAliens(){
+//        List<Alien> aliens = repo.findAll();
+//        System.out.println(aliens);
+//        return aliens;
+//    }
+//
+//    @GetMapping("/alien/{id}")
+//    public Alien getAlien(@PathVariable("id") Long id){
+//        System.out.println("helloooooooooooo  ");
+//        System.out.println("In add alien request" + id);
+//        Alien a = repo.findById(id).orElse(new Alien(0L,"",0));
+//        return a;
+//    }
 
 
     @RequestMapping("/getAlienByName")
